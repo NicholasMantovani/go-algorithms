@@ -8,6 +8,17 @@ package module01
 //
 //	DecToBase(14, 16) => "E"
 //	DecToBase(14, 2) => "1110"
+
+const charSet = "0123456789ABCDEF"
+
 func DecToBase(dec, base int) string {
-	return ""
+	if dec == 0 {
+		return ""
+	}
+
+	reminder := dec % base
+
+	dec = dec / base
+	return DecToBase(dec, base) + string(charSet[reminder])
+
 }
